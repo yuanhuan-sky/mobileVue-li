@@ -89,9 +89,9 @@ export default {
          * 这里先简单粗暴的跳转到首页
          * 真实的业务要处理成跳转到之前过来的的页面
          */
-        // this.$router.push({
-        //   name: 'home'
-        // })
+        this.$router.push({
+          name: 'home'
+        })
       } catch (err) {
         console.log(err)
         console.log('登录失败')
