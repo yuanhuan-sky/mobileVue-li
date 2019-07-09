@@ -8,16 +8,27 @@ import store from './store'
  */
 import 'amfe-flexible'
 
-import {
-  Button,
-  Tabbar,
-  TabbarItem
-} from 'vant'
+/**
+ * 现在我们简单粗暴全引进来，方便使用
+ */
+import Vant from 'vant'
+import 'vant/lib/index.css'
 
-Vue
-  .use(Button)
-  .use(Tabbar)
-  .use(TabbarItem)
+Vue.use(Vant)
+
+/**
+ * 后面我们再配置为按需引入的方式（减小代码打包体积）
+ */
+// import {
+//   Button,
+//   Tabbar,
+//   TabbarItem
+// } from 'vant'
+
+// Vue
+//   .use(Button)
+//   .use(Tabbar)
+//   .use(TabbarItem)
 
 Vue.config.productionTip = false
 
