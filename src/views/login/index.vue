@@ -27,6 +27,8 @@
         <van-button
           class="login-btn"
           type="info"
+          :loading="loginLoading"
+          loading-text="登录中..."
           @click.prevent="handleLogin"
         >登录</van-button>
       </div>
@@ -41,15 +43,17 @@ export default {
   name: 'LoginIndex',
   data () {
     return {
-      user: {
+      user: { // 提交登录的表单数据
         mobile: '18801185985',
         code: '123456'
-      }
+      },
+      loginLoading: false // 控制登录按钮的 loading 状态
     }
   },
 
   methods: {
     async handleLogin () {
+      this.loginLoading = true
       try {
         const data = await login(this.user)
 
@@ -59,13 +63,14 @@ export default {
          * 这里先简单粗暴的跳转到首页
          * 真实的业务要处理成跳转到之前过来的的页面
          */
-        this.$router.push({
-          name: 'home'
-        })
+        // this.$router.push({
+        //   name: 'home'
+        // })
       } catch (err) {
         console.log(err)
         console.log('登录失败')
       }
+      this.loginLoading = false
     }
   }
 }
