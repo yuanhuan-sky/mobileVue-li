@@ -55,15 +55,23 @@
       <van-tabbar-item icon="setting-o" to="my">我的</van-tabbar-item>
     </van-tabbar>
     <!-- /底部导航 -->
+
+    <!-- 频道组件 -->
+    <home-channel/>
+    <!-- /频道组件 -->
   </div>
 </template>
 
 <script>
 import { getUserChannels } from '@/api/channel'
 import { getArticles } from '@/api/article'
+import HomeChannel from './components/channel'
 
 export default {
   name: 'HomeIndex',
+  components: {
+    HomeChannel
+  },
   data () {
     return {
       channels: [],
