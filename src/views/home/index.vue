@@ -82,6 +82,7 @@ export default {
   },
 
   async created () {
+    console.log('组件重新 created 渲染了')
     // 加载频道列表
     await this.loadChannels()
 
