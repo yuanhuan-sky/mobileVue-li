@@ -7,7 +7,7 @@
     <!-- 频道标签 -->
     <van-tabs class="channel-tabs" v-model="activeChannelIndex">
       <!-- 这种元素不受作用域影响 -->
-      <div slot="nav-right" class="wap-nav">
+      <div slot="nav-right" class="wap-nav" @click="isChannelShow = true">
         <van-icon name="wap-nav" />
       </div>
       <van-tab
@@ -61,7 +61,10 @@
     <!-- /底部导航 -->
 
     <!-- 频道组件 -->
-    <home-channel/>
+    <!--
+      :value="isChannelShow"
+     -->
+    <home-channel v-model="isChannelShow" />
     <!-- /频道组件 -->
   </div>
 </template>
@@ -83,7 +86,8 @@ export default {
       list: [],
       loading: false,
       finished: false,
-      pullRefreshLoading: false
+      pullRefreshLoading: false,
+      isChannelShow: false // 控制频道面板的显示状态
     }
   },
 
