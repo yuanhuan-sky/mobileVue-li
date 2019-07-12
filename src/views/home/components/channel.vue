@@ -126,7 +126,13 @@ export default {
       //    但是引用类型除外
       //    即便是这样：也最好不要利用这个特点
       // 建议做法就是将数据传递给父组件，让组件自己去修改
-      this.userChannels.push(item)
+      // this.userChannels.push(item)
+
+      // 截取一个新的数组，操作这个数组，操作结束将结果传递给父组件，让父组件自己去修改
+      // 始终记住一个原则：Props 数据是单向的，不要在子组件中修改它，始终由父组件去修改从而影响它
+      const channels = this.userChannels.slice(0)
+      channels.push(item)
+      this.$emit('update:user-channels', channels)
     }
 
     // handleInput (e) {
