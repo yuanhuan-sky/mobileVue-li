@@ -6,6 +6,10 @@
 
     <!-- 频道标签 -->
     <van-tabs class="channel-tabs" v-model="activeChannelIndex">
+      <!-- 这种元素不受作用域影响 -->
+      <div slot="nav-right" class="wap-nav">
+        <van-icon name="wap-nav" />
+      </div>
       <van-tab
         v-for="channelItem in channels"
         :key="channelItem.id"
@@ -278,5 +282,14 @@ export default {
 
 .channel-tabs /deep/ .van-tabs__content {
   margin-top: 92px;
+}
+
+.channel-tabs .wap-nav {
+  position: sticky;
+  right: 0;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  opacity: .7;
 }
 </style>
