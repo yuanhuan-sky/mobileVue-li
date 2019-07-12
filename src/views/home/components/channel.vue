@@ -144,6 +144,17 @@ export default {
       const channels = this.userChannels.slice(0)
       channels.push(item)
       this.$emit('update:user-channels', channels)
+
+      const { user } = this.$store.state
+
+      // 如果登录已登录，则请求添加用户频道
+      if (user) {
+      } else {
+        // 如果没有登录，则添加到本地存储
+        // 没有就创建，有的直接覆盖
+        // 注意：本地存储数据无法像 js 数据变量去修改，要想改变只能完全重写
+        window.localStorage.setItem('channels', JSON.stringify(channels))
+      }
     }
 
     // handleInput (e) {
