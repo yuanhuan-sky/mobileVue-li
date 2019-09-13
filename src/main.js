@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VeeValidate, { Validator } from 'vee-validate'
+import { Validator } from 'vee-validate';
 import zhCN from 'vee-validate/dist/locale/zh_CN'
 
 /**
